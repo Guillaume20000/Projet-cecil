@@ -1,0 +1,14 @@
+title: 'Maison Aube'
+baseline: 'Objets déco choisis avec soin'
+baseurl: 'https://Guillaume20000.github.io/Projet-cecil/'
+description: 'Maison Aube sélectionne des objets déco, luminaires et accessoires aux matières naturelles, imaginés pour rendre le quotidien plus doux et accompagner votre maison longtemps.'
+language: fr
+languages:
+  - code: fr
+    name: Français
+    locale: fr_FR
+author:
+  name: 'Maison Aube'
+image: icon.png
+taxonomies:
+  tags: tag

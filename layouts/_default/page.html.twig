@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metatags.html.twig' with {page: page, site: site} only %}
+    <meta name="theme-color" content="#f7f5ef">
+    <link rel="stylesheet" href="{{ asset('css/site.css') }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="announcement">Livraison offerte dès 80 € · Des objets choisis pour durer</div>
+    <header class="site-header">
+      <a class="brand" href="{{ url(site.home) }}" aria-label="{{ site.title }}, accueil">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>{{ site.title }}</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="{{ url(site.home) }}">Accueil</a>
+        <a href="{{ url('/boutique/') }}">La boutique</a>
+        <a href="{{ url('/histoire/') }}">Notre histoire</a>
+        <a href="{{ url('/contact/') }}">Contact</a>
+      </nav>
+      <button class="cart-toggle" type="button" aria-controls="cart-panel" aria-expanded="false">
+        Panier <span class="cart-count" aria-live="polite">0</span>
+      </button>
+    </header>
+    <aside class="cart-panel" id="cart-panel" hidden aria-label="Panier">
+      <div class="cart-panel-heading">
+        <h2>Votre panier</h2>
+        <button class="cart-close" type="button" aria-label="Fermer le panier">×</button>
+      </div>
+      <p class="cart-empty">Votre panier est encore vide.</p>
+      <ul class="cart-items"></ul>
+      <p class="cart-total" hidden>Total <strong>0 €</strong></p>
+      <a class="button button-dark cart-contact" href="{{ url('/contact/') }}" hidden>Finaliser ma demande</a>
+      <p class="cart-note">Panier de démonstration — aucun paiement n'est collecté.</p>
+    </aside>
+    <main id="contenu">
+      {% block content %}<article class="page-content">{{ page.content }}</article>{% endblock %}
+    </main>
+    <footer class="site-footer">
+      <a class="brand brand-footer" href="{{ url(site.home) }}">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>{{ site.title }}</span>
+      </a>
+      <p>{{ site.baseline }}</p>
+      <nav aria-label="Liens de pied de page">
+        <a href="{{ url('/livraison/') }}">Livraison & retours</a>
+        <a href="{{ url('/contact/') }}">Nous contacter</a>
+      </nav>
+      <small>© {{ 'now'|date('Y') }} {{ site.title }} · Site de démonstration réalisé avec Cecil</small>
+    </footer>
+    <script src="{{ asset('js/store.js') }}" defer></script>
+  </body>
+</html>

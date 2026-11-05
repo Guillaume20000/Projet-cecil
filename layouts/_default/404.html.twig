@@ -1,0 +1,10 @@
+{% extends '_default/page.html.twig' %}
+
+{% block content %}
+  <section class="not-found">
+    <p class="eyebrow">Erreur 404</p>
+    <h1>Cette pièce n'est pas dans la collection.</h1>
+    <p>La page que vous cherchez a peut-être changé d'adresse. Retournons découvrir la boutique.</p>
+    <a class="button button-dark" href="{{ url(site.home) }}">Retour à l'accueil <span aria-hidden="true">→</span></a>
+  </section>
+{% endblock %}
