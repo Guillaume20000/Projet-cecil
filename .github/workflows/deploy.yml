@@ -24,8 +24,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cecil Action
-        uses: cecilapp/action-cecil@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Download Cecil
+        run: curl -LO https://github.com/Cecilapp/Cecil/releases/latest/download/cecil.phar
+
+      - name: Build site with Cecil
+        run: php cecil.phar build
+
+      - name: Disable Jekyll on GitHub Pages
+        run: touch _site/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
